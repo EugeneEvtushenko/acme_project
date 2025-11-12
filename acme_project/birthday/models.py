@@ -13,7 +13,7 @@ class Tag(models.Model):
     # Переопределяем метод:
     def __str__(self):
         return self.tag
-    
+
 
 class Birthday(models.Model):
     first_name = models.CharField(
@@ -49,12 +49,12 @@ class Birthday(models.Model):
     def get_absolute_url(self):
         # С помощью функции reverse() возвращаем URL объекта.
         return reverse('birthday:detail', kwargs={'pk': self.pk})
-    
+
 
 class Congratulation(models.Model):
     text = models.TextField('Текст поздравления')
     birthday = models.ForeignKey(
-        Birthday, 
+        Birthday,
         on_delete=models.CASCADE,
         related_name='congratulations',
     )
@@ -63,4 +63,3 @@ class Congratulation(models.Model):
 
     class Meta:
         ordering = ('created_at',)
-

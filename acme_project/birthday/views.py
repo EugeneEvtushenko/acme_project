@@ -21,7 +21,7 @@ def simple_view(request):
 class BirthdayListView(ListView):
     # Указываем модель, с которой работает CBV...
     model = Birthday
-    # По умолчанию этот класс 
+    # По умолчанию этот класс
     # выполняет запрос queryset = Birthday.objects.all(),
     # но мы его переопределим:
     queryset = Birthday.objects.prefetch_related(
